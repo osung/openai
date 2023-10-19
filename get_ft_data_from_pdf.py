@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-#os.environ['CURL_CA_BUNDLE'] = 'C:\work\kisti_cert.crt'
+os.environ['CURL_CA_BUNDLE'] = 'C:\work\kisti_cert.crt'
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 question = "generate the most important ten pairs of question and answers from following text and give me answers as following structure :{\"prompt\": question, \"completion\": answer}: "
