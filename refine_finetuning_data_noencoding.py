@@ -6,7 +6,7 @@ def refine_data(filename, outfilename) :
             line.rstrip().rstrip(',') + '\n' if line.rstrip().endswith(',') else line 
             for line in file if line.strip().startswith('{"prompt":')
         ]
-        
+
     # 선택된 줄만 다시 파일에 쓰기
     with open(outfilename, 'w') as file:
         file.writelines(selected_lines)
@@ -18,6 +18,6 @@ def refine_data(filename, outfilename) :
     print(len(selected_lines))
 
 
-refine_data('C:\work\\finetuning\\ft_gene_therapy_en.txt', 'C:\work\\finetuning\\ft_gene_therapy_en_refine.jsonl')
+#refine_data('C:\work\\finetuning\\ft_gene_therapy_en.txt', 'C:\work\\finetuning\\ft_gene_therapy_en_refine.jsonl')
 
 refine_data('C:\work\\finetuning\\ft_micro_led_display_en.txt', 'C:\work\\finetuning\\ft_micro_led_display_en_refine.jsonl')
