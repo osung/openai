@@ -8,7 +8,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 ret_file = openai.File.create(
     #file = open("C:\work\\finetuning\\ft_micro_led_display_en_chat_all.jsonl", "rb"),
-    file = open("C:\work\\finetuning\\ft_gene_therapy_en_chat_all.jsonl", "rb"), 
+    file = open("C:\work\\finetuning\\ft_col_robot_chat_new.jsonl", "rb"), 
     purpose = 'fine-tune'
 )
 

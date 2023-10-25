@@ -8,12 +8,14 @@ os.environ['CURL_CA_BUNDLE'] = 'C:\work\kisti_cert.crt'
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 question = "generate the most important ten pairs of question and answers from following text and give me answers as following structure :{\"prompt\": question, \"completion\": answer}: "
-system_message = "You are an industrial market expert in Korea. You have to give specialied and detailed answers. Always answer in Korean but write in English for the technical terms and the proper names."
+system_message = "You are an industrial market expert in Korea. You have to give specialied and detailed answers. Always answer in English."
 
 max_tokens = 4000
 
 # PDF 파일 열기
-pdf_file_path = 'C:\work\pdf\Drug_Discovery_Informatics_Market.pdf'
+#pdf_file_path = 'C:\work\\finetuning\micro_led_display.pdf'
+pdf_file_path = 'C:\work\\finetuning\Gene_Therapy_Market.pdf'
+
 pdf_file = open(pdf_file_path, 'rb')
 
 # PDF 파일을 텍스트로 변환

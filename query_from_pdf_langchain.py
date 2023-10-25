@@ -38,8 +38,13 @@ market_name = 'blockchain'
 #question = 'blockchain 시장의 주요 참여기업들에 대해 상세히 설명해줘'
 #question = 'blockchain 시장의 value chain에 대해 분석해줘'
 #question = 'blockchain 시장의 촉진 및 저해요인을 한글 1000 글자가 되도록 작성해줘. 정치, 경제, 사회, 기술적인 관점에서 어떤 요인들이 "blockchain" 산업과 시장의 성장을 촉진할 것인지 혹은 저해할 것인지 정리해줘. 촉진요인을 먼저 5가지 이상 정리하고 그 후에 이어서 저해요인을 5가지 이상 정리해줘.'
-question = 'blockchain 시장의 특허 분석을 한글 1000글자 이상으로 상세하게 해줘'
-
+#question = 'blockchain 시장의 특허 분석을 한글 1000글자 이상으로 상세하게 해줘'
+#question = 'Show me the BLOCKCHAIN MARKET IN GOVERNMENT BY REGION from 2018 to 2021 year by year as well as CAGR'
+#question = "Show me the amount of blockchain investment from 2018 to 2020 year by year."
+#question = "Show me the month-wise blockchain investment in 2022."
+question = "Show me the number of patents by top 10 owners."
+#question = "Show me the top TOP JURISDICTION WISE - DOCUMENT COUNT"
+#question = "Show me the number of patents published over last 10 years year by year."
 system_message = "You are an industrial market expert in Korea. You have to give specialied and detailed answers. Always answer in Korean but write in English for the technical terms and the proper names."
 
 # PDF 문서 로드
@@ -66,6 +71,8 @@ messages = [
         content = question + merged_doc
     ),
 ]
+
+print(messages)
 
 llm = ChatOpenAI(model_name='gpt-4', #3.5-turbo', 
                  openai_api_key = openai_api_key,

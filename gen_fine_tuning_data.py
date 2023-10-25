@@ -10,13 +10,18 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 question = "generate five pairs of question and answers from following text and give me answers as following structure :{\"prompt\": question, \"completion\": answer}: "
 
-kr_context = """양자 암호화 상업화는 고객 인식 부족으로 어려움이 있으며, 지식은 경제 성장의 주요 동력 중 하나입니다. 
-고기술 혁신을 상업화하기 위해서는 기업 상업화 팀이 필요한 기술 지식을 식별, 확보, 결합 및 관리해야 합니다. 
-또한 혁신이 성공하려면 혁신 팀이 직원의 학습 경로를 준수하고 강력한 네트워크를 생성 및 유지할 수 있어야 합니다. 
-양자 암호화가 새로운 개념이기 때문에 충분하고 관련성 있는 시장 정보를 얻지 못하거나 정보를 올바르게 활용하지 못하는 등 다양한 어려움이 나타나고 있으며, 
-시장에 대한 지식 부족 및 지역 및 국제 판매 및 유통 센터를 찾지 못하는 등의 문제가 있습니다. 
-따라서 양자 암호화 솔루션에 대한 적절한 고객 인식이 양자 암호화 솔루션의 배포를 성공적으로 구현하기 위해 필요합니다. 
-이러한 것들은 시장 성장에 영향을 미치는 주요 어려운 요소 중 일부입니다."""
+kr_context = """협동 로봇의 분류
+1. 협동 운용 방식에 따른 분류
+ 1.1. 안전 정격 감시 정지(Safety-Rated Monitored Stop): 작업영역에 사람이 없을 경우에만 일반 산업용 로봇(Non-Collaborative Robot)처럼 작동
+ 1.2. 핸드 가이딩((Hand Guiding): 사람이 수작업 장치(Handoperated Device)를 사용하여 로봇을 이용
+ 1.3. 속도 및 위치 감시(Speed&Separation Monitoring): 로봇과 사람 사이의 거리를 모니터링하며, 안전거리를 확보하며 작업
+ 1.4. 동력 및 힘 제한(Power&Force Limiting): 일정 값의 동력(Power) 또는 힘(Force)이 감지되면 로봇이 즉각 작동을 멈춤으로써 사람의 상해를 방지
+2. 활용 산업에 따른 분류
+ 2.1. 일반제조용: 자동차, 전자 등 제조업 기반 산업에 활용되며, 용접･도장･핸들링 공정 등 표준화된 반복 작업 공정 및 식료품･화장품 등 비표준화･비정형 공정의 자동화 영역을 포함
+ 2.2. 전문제조용: 반도체 공정 등 별도의 설계 기술이 요구되는 특수제조업에 적용
+ 2.3. 의료산업용: 의료기기로 분류되며 제품 설계 착수부터 멸균･안전･의료분야 요구사항을 만족시키도록 제작
+ 
+ """
 
 en_context = '''Commercializing quantum cryptography is a challenge due to the lack of customer awareness, as knowledge is one of the key drivers for economic growth. 
 For the commercialization of high-technology innovations, the enterprise commercialization team must identify, obtain, combine, and manage the required technological knowledge. 

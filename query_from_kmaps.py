@@ -8,6 +8,14 @@ import pandas as pd
 #from pandas.io.json import json_normalize
 import json
 
+def print_paged(json_data, lines_per_page=50):
+    lines = json_data.split('\n')
+    for i in range(0, len(lines), lines_per_page):
+        
+        print('\n'.join(lines[i:i+lines_per_page]))
+        input('Press Enter to continue...')
+
+
 load_dotenv()
 os.environ['CURL_CA_BUNDLE'] = 'C:\work\kisti_cert.crt'
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -25,4 +33,9 @@ json_api = response.read().decode("utf-8")
 #print(json_api)
 
 json_file = json.loads(json_api)
-print(json_file)
+pretty_json = json.dumps(json_file, ensure_ascii=False, indent=4)
+print_paged(pretty_json)
+
+#print(json_api)
+#print(len(pretty_json))
+#print(len(json_api))
