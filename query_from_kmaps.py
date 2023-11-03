@@ -24,8 +24,8 @@ kmaps_service_key = os.getenv("KMAPS_API_KEY")
 url = "http://112.155.255.158:9090/productApi/getMrktData.do"
 
 queryParams = '?' + urlencode({quote_plus('serviceKey') : kmaps_service_key,
-                               quote_plus('query') : "의자",
-                               quote_plus('year') : "2019" })
+                               quote_plus('query') : "협동로봇",
+                               quote_plus('year') : "2021" })
 
 response = urlopen(url + queryParams)
 json_api = response.read().decode("utf-8")
@@ -33,8 +33,11 @@ json_api = response.read().decode("utf-8")
 #print(json_api)
 
 json_file = json.loads(json_api)
-pretty_json = json.dumps(json_file, ensure_ascii=False, indent=4)
-print_paged(pretty_json)
+#pretty_json = json.dumps(json_file, ensure_ascii=False, indent=4)
+#print_paged(pretty_json)
+
+with open('corbot_2021.json', 'w', encoding='utf-8') as f:
+    json.dump(json_file, f, ensure_ascii=False, indent=4)
 
 #print(json_api)
 #print(len(pretty_json))

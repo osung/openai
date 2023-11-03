@@ -36,8 +36,8 @@ load_dotenv()
 os.environ['CURL_CA_BUNDLE'] = 'C:\work\kisti_cert.crt'
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-#pdf_path_list = ['C:\work\pdf\제조용+협동로봇.pdf', 'C:\work\pdf\협동로봇시장.pdf', 'C:\work\pdf\Collaborative_Robot_Market.pdf', 'C:\work\pdf\협동로봇_기술동향.pdf']
-pdf_path_list = ['C:\work\pdf\협동로봇시장_KISTI.pdf', 'C:\work\pdf\협동로봇_기술동향.pdf']
+#pdf_path_list = ['C:\work\pdf\제조용+협동로봇.pdf', 'C:\work\pdf\협동로봇시장_KISTI.pdf', 'C:\work\pdf\협동로봇시장.pdf', 'C:\work\pdf\Collaborative_Robot_Market.pdf', 'C:\work\pdf\협동로봇_기술동향.pdf']
+pdf_path_list = ['C:\work\pdf\협동로봇시장_KISTI.pdf'] #, 'C:\work\pdf\협동로봇_기술동향.pdf']
 market = '협동로봇'
 
 #market = 'micro_led_display'
@@ -66,22 +66,27 @@ size_template = """국내외 {market} 시장규모를 한글 2000 글자가 되�
 가능한 많은 연도의 시장규모를 알려주고 향후 몇 %의 성장률을 보여 미래 시점에 얼마의 시장규모를 형성할지 작성해줘.
 연도별 시장규모와 성장률을 표로 정리해줘. 우리나라의 시장규모는 원화로 작성해줘."""
 
-company_template = """{market} 시장의 업체현황을 한글 2000 글자가 되도록 작성해줘.
-업체현황은 {market}을 연구개발 혹은 판매하고 있는 적어도 5개 이상의 기업들의 현황을 정리해서 작성해줘.
-각 기업들의 점유율을 포함해서 그 기업들이 언제 무엇을 어떻게 했는지 구체적으로 작성해줘. 
-개조식으로 작성하지 말고 서술식으로 작성해줘."""
+# company_template = """{market} 시장의 업체현황을 한글 2000 글자가 되도록 작성해줘.
+# 업체현황은 {market}을 연구개발 혹은 판매하고 있는 적어도 5개 이상의 기업들의 현황을 정리해서 작성해줘.
+# 각 기업들의 점유율을 포함해서 그 기업들이 언제 무엇을 어떻게 했는지 구체적으로 작성해줘. 
+# 개조식으로 작성하지 말고 서술식으로 작성해줘."""
+
+company_template = """{market} 시장의 국내 업체 현황을 두산로보틱스, 한화기계, 레인보우틱스, 뉴로메카, 민트로봇을 포함해서 5개 이상 작성해줘. 
+각 기업들의 현황을 언제 무엇을 어떻게 했는지 구체적으로 작성하고, 점유율과 매출액을 포함해줘. 개조식으로 작성하지 말고 서술식으로 작성해줘. 
+존대말을 사용하지 말고 ~ 이다. 로 끝내줘."""
 
 factor_template = """{market} 시장의 촉진 및 저해요인을 한글 2000 글자가 되도록 작성해줘. 
 정치, 경제, 사회, 기술적인 관점에서 어떤 요인들이 {market} 산업과 시장의 성장을 촉진할 것인지 혹은 저해할 것인지 정리해줘.
 촉진요인을 먼저 5가지 이상 정리하고 그 후에 이어서 저해요인을 5가지 이상 정리해줘.
 개조식으로 작성하지 말고 서술식으로 작성해줘."""
 
-contents = {"개요": overview_template, 
-            "기술동향": trend_template,
-            "시장특징": characteristic_template,
-            "시장규모": size_template,
+contents = {#"개요": overview_template, 
+            #"기술동향": trend_template,
+            #"시장특징": characteristic_template,
+            #"시장규모": size_template,
             "업체현황": company_template,
-            "시장요인": factor_template}
+            #"시장요인": factor_template
+            }
 
 # PDF 문서 로드
 retriever = load_db(pdf_path_list, 3)

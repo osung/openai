@@ -36,10 +36,14 @@ load_dotenv()
 os.environ['CURL_CA_BUNDLE'] = 'C:\work\kisti_cert.crt'
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-pdf_path_list = ['C:\work\\finetuning\Gene_Therapy_Market.pdf']
-market = 'gene therapy'
+#pdf_path_list = ['C:\work\\finetuning\Gene_Therapy_Market.pdf']
+#market = 'gene therapy'
 
-'''
+#pdf_path_list = ['C:\work\pdf\협동로봇시장_KISTI.pdf', 'C:\work\pdf\협동로봇_기술동향.pdf']
+
+pdf_path_list = ['C:\work\pdf\제조용+협동로봇.pdf', 'C:\work\pdf\협동로봇시장.pdf', 'C:\work\pdf\Collaborative_Robot_Market.pdf', 'C:\work\pdf\협동로봇_기술동향.pdf']
+market = '협동로봇'
+
 overview_template = """{market}의 정의, 원리, 종류, 타 기술과의 특징 비교 등을 한글 2000자 분량으로 작성해줘.
 개조식으로 작성하지 말고 서술식으로 작성해줘.
 """
@@ -69,12 +73,13 @@ factor_template = """{market} 시장의 촉진 및 저해요인을 한글 2000 �
 촉진요인을 먼저 5가지 이상 정리하고 그 후에 이어서 저해요인을 5가지 이상 정리해줘.
 개조식으로 작성하지 말고 서술식으로 작성해줘."""
 
-contents = {"개요": overview_template, 
-            "기술동향": trend_template,
-            "시장특징": characteristic_template,
-            "시장규모": size_template,
+contents = {#"개요": overview_template, 
+            #"기술동향": trend_template,
+            #"시장특징": characteristic_template,
+            #"시장규모": size_template,
             "업체현황": company_template,
-            "시장요인": factor_template} '''
+            #"시장요인": factor_template
+            } 
 
 
 # PDF 문서 로드
@@ -89,7 +94,6 @@ llm = ChatOpenAI(model_name='gpt-4', #3.5-turbo',
                 )
             
 # 시장 분석 시작
-'''
 for name, template in contents.items() :
     prompt = PromptTemplate(input_variables=["market"], template=template)
     question = prompt.format(market=market)
@@ -102,13 +106,21 @@ for name, template in contents.items() :
 
     print(f"\n=========================== {name} ===========================")
     print(chain.run(question))
-'''
 
-question = '2020년부터 2027년까지 Non-viral Vectors 시장의 규모는 얼마였나요?'
 
-chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        retriever=retriever,
-    )
+#question = '2020년부터 2027년까지 Non-viral Vectors 시장의 규모는 얼마였나요?'
+question = '''당신의 역할은 전문적인 시장동향 보고서를  작성하는 것이다. 
+협동로봇 시장의 국내외 업체현황을 한글 1000 글자가 되도록 작성하시오. 
+국내외 업체현황은 협동로봇을 연구개발 혹은 판매하고 있는 국내외 5개 이상의 기업들의 정보를 각각 정리해서 작성하시오. 
+그 기업들이 언제 무엇을 어떻게 했는지 구체적으로 작성하시오. 
+개조식으로 작성하지 말고 서술식으로 작성하시오.'''
+#협동로봇 시장의 국내외 시장규모를 한글 1000글자가 되도록 작성하시오. 
+#국내외 시장규모는 협동로봇 시장의 규모와 성장률을 국내시장과 세계시장으로 구분하여 구체적인 수치를 이용해서 작성하시오. 
+#가능한 많은 연도의 시장규모를 알려주고 향후 몇 %의 성장률을 보여 미래 시점에 얼마의 시장규모를 형성할지 작성하시오.
 
-print(chain.run(question))
+# chain = RetrievalQA.from_chain_type(
+#         llm=llm,
+#         retriever=retriever,
+#     )
+
+# print(chain.run(question + '존대말을 하지 말고 ~이다. 로 끝내줘.'))
