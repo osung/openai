@@ -25,7 +25,7 @@ url = "http://112.155.255.158:9090/productApi/getMrktData.do"
 
 queryParams = '?' + urlencode({quote_plus('serviceKey') : kmaps_service_key,
                                quote_plus('query') : "협동로봇",
-                               quote_plus('year') : "2021" })
+                               quote_plus('year') : "2022" })
 
 response = urlopen(url + queryParams)
 json_api = response.read().decode("utf-8")
@@ -36,9 +36,9 @@ json_file = json.loads(json_api)
 #pretty_json = json.dumps(json_file, ensure_ascii=False, indent=4)
 #print_paged(pretty_json)
 
-with open('corbot_2021.json', 'w', encoding='utf-8') as f:
-    json.dump(json_file, f, ensure_ascii=False, indent=4)
+#with open('corbot_2021.json', 'w', encoding='utf-8') as f:
+#    json.dump(json_file, f, ensure_ascii=False, indent=4)
 
-#print(json_api)
+print(json_file)
 #print(len(pretty_json))
 #print(len(json_api))
