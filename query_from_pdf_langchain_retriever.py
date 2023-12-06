@@ -83,7 +83,7 @@ factor_template = """{market} 시장의 촉진 및 저해요인을 한글 2000 �
 contents = {#"개요": overview_template, 
             #"기술동향": trend_template,
             #"시장특징": characteristic_template,
-            #"시장규모": size_template,
+            "시장규모": size_template,
             "업체현황": company_template,
             #"시장요인": factor_template
             }

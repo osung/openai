@@ -120,4 +120,4 @@ for question in q_list :
     #print(new_obj)
 
     # 변환된 객체를 출력 파일에 쓰기
-    #utfile.write(json.dumps(new_obj, ensure_ascii=False) + '\n')
+    #outfile.write(json.dumps(new_obj, ensure_ascii=False) + '\n')

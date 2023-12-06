@@ -61,9 +61,9 @@ for name, template in contents.items() :
     ]
 
     response = openai.ChatCompletion.create(
-        #model="gpt-4", 
+        model="gpt-4", 
         #model = "gpt-3.5-turbo",
-        model = "ft:gpt-3.5-turbo-0613:kisti::8D5TXpRs", # gene therapy
+        #model = "ft:gpt-3.5-turbo-0613:kisti::8D5TXpRs", # gene therapy
         #model = "ft:gpt-3.5-turbo-0613:kisti::8D5RUDNn",  # micro led display
         messages=messages,
         temperature=0.0,  # 창의성을 조절하는 옵션
